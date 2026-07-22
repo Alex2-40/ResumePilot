@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-slate-900 antialiased;
+}
+
+@keyframes site-aurora-shift {
+  0% {
+    background-position: 82% 42%, 94% 24%;
+    transform: translate3d(4%, 0, 0) scale(1.01);
+  }
+  50% {
+    background-position: 58% 48%, 68% 30%;
+    transform: translate3d(0, -1%, 0) scale(1.03);
+  }
+  100% {
+    background-position: 28% 54%, 34% 38%;
+    transform: translate3d(-5%, 0, 0) scale(1.01);
+  }
+}
+
+@keyframes site-aurora-pulse {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.38;
+  }
+  50% {
+    transform: translate3d(2%, -2%, 0) scale(1.08);
+    opacity: 0.56;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes site-aurora-side-glow {
+  0% {
+    background-position:
+      92% 5%,
+      96% 7%,
+      84% 9%,
+      78% 6%,
+      8% 14%,
+      12% 10%,
+      94% 18%,
+      4% 30%,
+      52% 10%,
+      60% 14%,
+      42% 4%,
+      34% 12%,
+      50% 0%,
+      50% 50%;
+  }
+  50% {
+    background-position:
+      93% 6%,
+      97% 9%,
+      85% 11%,
+      79% 8%,
+      10% 18%,
+      14% 13%,
+      95% 22%,
+      6% 34%,
+      51% 11%,
+      59% 15%,
+      41% 6%,
+      33% 14%,
+      49% 2%,
+      50% 50%;
+  }
+  100% {
+    background-position:
+      92% 5%,
+      96% 7%,
+      84% 9%,
+      78% 6%,
+      8% 14%,
+      12% 10%,
+      94% 18%,
+      4% 30%,
+      52% 10%,
+      60% 14%,
+      42% 4%,
+      34% 12%,
+      50% 0%,
+      50% 50%;
+  }
+}
+
+.site-aurora-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 92% 5%, rgba(147, 197, 253, 0.2), transparent 10%),
+    radial-gradient(circle at 96% 7%, rgba(196, 181, 253, 0.17), transparent 13%),
+    radial-gradient(circle at 84% 9%, rgba(125, 211, 252, 0.12), transparent 9%),
+    radial-gradient(circle at 78% 6%, rgba(196, 181, 253, 0.09), transparent 11%),
+    radial-gradient(circle at 8% 14%, rgba(167, 243, 208, 0.2), transparent 15%),
+    radial-gradient(circle at 12% 10%, rgba(251, 207, 232, 0.16), transparent 17%),
+    radial-gradient(circle at 94% 18%, rgba(244, 114, 182, 0.13), transparent 15%),
+    radial-gradient(circle at 4% 30%, rgba(110, 231, 183, 0.13), transparent 19%),
+    radial-gradient(circle at 52% 10%, rgba(191, 219, 254, 0.22), transparent 28%),
+    radial-gradient(circle at 60% 14%, rgba(216, 180, 254, 0.16), transparent 32%),
+    radial-gradient(circle at 42% 4%, rgba(147, 197, 253, 0.14), transparent 34%),
+    radial-gradient(circle at 34% 12%, rgba(196, 181, 253, 0.08), transparent 30%),
+    radial-gradient(circle at top, rgba(96, 165, 250, 0.1), transparent 36%),
+    linear-gradient(180deg, #ffffff 0%, #fdfdff 100%);
+  animation: site-aurora-side-glow 2.2s ease-in-out infinite;
+}
+
+.site-aurora-bg::before,
+.site-aurora-bg::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  background-image:
+    repeating-linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0.988) 0%,
+      rgba(255, 255, 255, 0.988) 4%,
+      transparent 6.5%,
+      transparent 8.5%,
+      rgba(255, 255, 255, 0.988) 11%,
+      transparent 13.5%,
+      transparent 16%
+    ),
+    repeating-linear-gradient(
+      100deg,
+      rgba(59, 130, 246, 0.44) 8%,
+      rgba(165, 180, 252, 0.38) 9.8%,
+      transparent 11%,
+      transparent 13.5%,
+      rgba(147, 197, 253, 0.34) 15.2%,
+      rgba(221, 214, 254, 0.32) 16.8%,
+      transparent 18%,
+      transparent 20.2%,
+      rgba(251, 207, 232, 0.28) 19.6%,
+      rgba(96, 165, 250, 0.38) 21.4%,
+      transparent 22.6%,
+      transparent 24.8%,
+      rgba(167, 243, 208, 0.3) 25.8%,
+      rgba(147, 197, 253, 0.28) 27.1%,
+      rgba(196, 181, 253, 0.25) 28.6%,
+      transparent 30.2%,
+      transparent 31.8%,
+      rgba(244, 114, 182, 0.22) 30.4%,
+      rgba(191, 219, 254, 0.2) 32.8%,
+      rgba(110, 231, 183, 0.28) 34.1%,
+      transparent 35.6%,
+      rgba(147, 197, 253, 0.18) 37.2%,
+      transparent 39%
+    );
+  background-size: 450%, 300%;
+  background-position: 62% 46%, 78% 24%;
+  filter: blur(16px);
+  opacity: 0.5;
+  will-change: transform, background-position;
+  mask-image: radial-gradient(ellipse at 66% 9%, black 12%, transparent 76%);
+}
+
+.site-aurora-bg::before {
+  animation: site-aurora-pulse 2.6s ease-in-out infinite;
+}
+
+.site-aurora-bg::after {
+  background-size: 320%, 185%;
+  mix-blend-mode: soft-light;
+  opacity: 0.26;
+  animation: site-aurora-shift 2.8s linear infinite;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.35);
+}
